@@ -50,11 +50,12 @@ function KareninAlani(kenaruzunlugu) {
 	4. Hesaplanan çemberin çevresi döndürülecektir.
 */
 
-function CemberinCevresi(/* kodlar buraya */) {
-  /* kodlar buraya */
+function CemberinCevresi(yaricap) {
+  return 2 * pi * yaricap;
 }
 
 /* (Oto test yok) Yukarıdaki CemberinCevresi fonksiyonunu yarıçap = 5 vererek aşağıda çalıştırıp, sonucu konsolda gözlemleyin (console.log)  */
+console.log(CemberinCevresi(5));
 
 /* 	GÖREV 2:  
 - CemberinAlani fonksiyonunu kullanarak aşağıdaki yönergeleri uygulayın:
@@ -64,9 +65,10 @@ function CemberinCevresi(/* kodlar buraya */) {
 	4. Hesaplanan çemberin alanı döndürülecektir.
 */
 
-function CemberinAlani(/* kodlar buraya */) {
-  /* kodlar buraya */
+function CemberinAlani(yaricap, pi) {
+  return pi * Math.pow(yaricap, 2);
 }
+console.log(CemberinAlani(5, pi));
 
 /* (Oto test yok) Yukarıdaki CemberinAlani fonksiyonunu yarıçap = 15 vererek aşağıda çalıştırıp, sonucu konsolda gözlemleyin (console.log)  */
 
@@ -99,31 +101,58 @@ let ucetambolunenler,
 
 // 3a çözümü
 
-/* kodlar buraya */
-
+enbuyuk = sayilar[0];
+enkucuk = sayilar[0];
+for (let i = 0; i < sayilar.length; i++) {
+  if (sayilar[i] > enbuyuk) {
+    enbuyuk = sayilar[i];
+  }
+  if (sayilar[i] < enkucuk) {
+    enkucuk = sayilar[i];
+  }
+}
 // 3b çözümü:
 
-/* kodlar buraya */
-
+ucetambolunenler = [];
+sayilar.forEach((sayi) => {
+  if (sayi % 3 === 0) {
+    ucetambolunenler.push(sayi);
+  }
+});
 // 3c çözümü:
 
-/* kodlar buraya */
-
+ucebolunenlerintoplami = ucetambolunenler.reduce((toplam, sayi) => {
+  return toplam + sayi;
+}, 0);
 // 3d çözümü
 
-/* kodlar buraya */
-
+besyuzdenkucuksayilar = [];
+sayilar.filter((sayi) => {
+  if (sayi < 500) {
+    besyuzdenkucuksayilar.push(sayi);
+  }
+});
 // 3e çözümü
 
-/* kodlar buraya */
-
+siralisayilar = besyuzdenkucuksayilar.sort((a, b) => {
+  return a - b;
+});
 // 3f çözümü
+tekraredensayilar = [];
+const sayiTekrar = {};
 
-/* kodlar buraya */
+sayilar.forEach((sayi) => {
+  sayiTekrar[sayi] = (sayiTekrar[sayi] || 0) + 1;
+});
 
+for (const [sayi, tekrarSayisi] of Object.entries(sayiTekrar)) {
+  if (tekrarSayisi > 1) {
+    tekraredensayilar.push(`${sayi} sayısı ${tekrarSayisi} kere tekrar edilmiştir`);
+  }
+}
 /*  Bu satırın aşağısındaki kodları lütfen değiştirmeyin  */
 
-function sa() {
+  function exampleFunction() {
   console.log("Kodlar çalışıyor");
   return "as";
 }
